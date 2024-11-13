@@ -1,0 +1,184 @@
+table{
+    width: 100%;
+}
+
+table, tr, th, td{
+    border: thin solid black;
+    border-collapse: collapse;
+    padding: 2px;
+}
+
+th, td{
+    text-align: center;
+}
+
+th{
+    font-size: 15px;
+}
+
+p{
+    margin: 0;
+    color: firebrick;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+select{
+    height: 100%;
+}
+
+.actions-class {
+    background-color: darkturquoise;
+    color: white;
+    padding: 7px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.actions-class:hover{
+    background-color: lightslategray;
+}
+
+.actions-class-back{
+    background-color: red;
+    color: white;
+    padding: 7px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.actions-class-back:hover{
+    background-color: lightslategray;
+}
+
+.action-accepted button:hover{
+    background-color: paleturquoise;
+}
+
+.card-style{
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.75);
+    margin: 0 20px;
+}
+
+.content-form{
+    padding: 20px 0px;
+    width: 100%;
+    box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.75);
+}
+
+.form-style{
+display: flex;
+flex-direction: column;
+padding: 20px;    background: #fff;
+border-radius: 5px;
+}
+
+.form-style input{
+    width: 100%;
+}
+
+.button-search{
+    background-color: powderblue;
+    border-radius: 5px;
+}
+
+.button-search:hover{
+    background-color: darkslateblue;
+    cursor: pointer;
+}
+
+.nav-button{
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-button >*:not(:last-child){
+    margin-right: 3px;
+}
+
+.li-button{
+    margin: 0;
+    list-style: none;
+}
+
+.li-button button{
+    border: 3 solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-selected{
+    background-color: lightskyblue;
+}
+
+.pagination-style{
+    display: flex;
+    justify-content: end;
+    margin-top: 5px;
+}
+
+.pagination-style  select{
+    height: 100%;
+}
+
+
+.pagination-style >*:not(:last-child){
+    margin-right: 4px;
+}
+
+.search-student{
+    display: flex;
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+.text-search{
+    flex-grow: 1;
+}
+.form-add {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 100%;
+    padding: 0px 0px 10px;
+
+}
+.form-add label {
+    width: 100%; /* El label ocupa el 100% de la primera columna */
+}
+
+.form-add input {
+    width: 100%; 
+}
+
+.form-add p {
+    color: red; 
+    font-style: bold;
+    grid-column: 2; /* El mensaje de error se coloca en la segunda columna */
+    text-align: left;
+}
+.table-student{
+        width: 100%;
+        border: 1;
+        border-collapse: collapse;
+}
+
+.text-pagination{
+    height: 100vh;
+}
+
+.title-main{
+    color: darkmagenta;
+}
+
+.title-main:hover{
+    cursor: pointer;
+    color: tomato;
+}
