@@ -1,12 +1,26 @@
 import './layout.css';
-import {NavLink, Outlet, useLocation} from 'react-router-dom';
-
+import {NavLink, Outlet, useLocation, useNavigate} from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from "../firebaseConfig";
 const Navigation = () => {
-    const location = useLocation();
+const location = useLocation();
+const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            alert("Sesión cerrada correctamente.");
+            console.log("Sesión cerrada correctamente.");
+            navigate("/login");
+        } catch (error) {
+            console.error("Error al cerrar sesión:", error.message);
+            alert("Hubo un problema al cerrar sesión.");
+        }
+    };
 
     return (
-        <nav>
-            <ul>
+        <nav className="nav-container">
+            <ul className="nav-links">
                 <li className={location.pathname === '/' ? 'link-selected' : ''}>
                     <NavLink to={'/'}>
                         Pagina Principal
@@ -18,6 +32,9 @@ const Navigation = () => {
                     </NavLink>
                 </li>
             </ul>
+            <div className="logout-container">
+                    <button onClick={handleLogout} className="logout-button">Cerrar Sesión</button>
+            </div>
         </nav>
     );
 }

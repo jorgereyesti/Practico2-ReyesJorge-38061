@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-class Students extends Model {
+class Students extends Model {  
 static init = (sequelize) => {
     super.init(
     {
@@ -50,8 +50,7 @@ static init = (sequelize) => {
         sequelize,
         modelName: "students",
         timestamps: false,
-    }
-    );
+    });
     return this;
 };
 }

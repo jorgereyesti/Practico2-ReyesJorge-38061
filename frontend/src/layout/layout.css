@@ -33,5 +33,38 @@
     .layout-menu .layout-nav nav ul li:hover{
         background-color: paleturquoise;
     }
+    .nav-container {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 80px);
+        justify-content: space-between; /* Empuja el botón al final */
+    }
     
+    .nav-links {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .nav-links li {
+        margin-bottom: 8px;
+    }
+    
+    .logout-container {
+        text-align: center; /* Centra horizontalmente el botón */
+    }
+    
+    .logout-button {
+        background-color: #ff4d4f;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%; /* Ocupar todo el ancho disponible si es necesario */
+    }
+    
+    .logout-button:hover {
+        background-color: #ff7875;
+    }
     
