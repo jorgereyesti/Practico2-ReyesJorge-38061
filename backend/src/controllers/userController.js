@@ -9,17 +9,17 @@ const createUser = async (req, res, next) => {
     // Validar que los campos sean proporcionados
     if (!uid || !email) {
         console.log('vacio, no llegan los datos', uid, email, createdAt);
-
     return res.status(400).json({ message: "Faltan campos requeridos." });
 }
     // Verifica si ya existe un usuario con el mismo UID
     const existingUser = await User.findOne({
         where: {
-            [Sequelize.Op.or]: [{ uid: uid }],
+            [Sequelize.Op.or]: [{ email: email }],
         }
     });
     if (existingUser) {
-        return res.status(400).json({ message: "El usuario ya existe." });
+        console.log('ya existe un usuario con este uid', email);
+        return res.status(409).json({ message:`El correo electrónico ${email} ya está registrado.` });
     }
     // Crea un nuevo usuario
     const newUser = await User.create({ uid, email, createdAt: new Date(createdAt)});
@@ -27,7 +27,7 @@ const createUser = async (req, res, next) => {
     } catch (error) {
         console.log("error al crear usuario backend", error);
         res.status(500).json({ message: "Error al crear el usuario." });
-    next("Error al crear usuario backend",error);
+        next("Error al crear usuario backend",error);
     }
 };
 

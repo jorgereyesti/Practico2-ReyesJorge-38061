@@ -5,8 +5,12 @@ export const saveUserToDatabase = async (userData) => {
     console.log("datos", userData);
     const response = await axios.post("http://localhost:3000/api/users", userData);
     return response.data;
-  } catch (error) {
-    console.error("Error al guardar usuario en la base de datos:", error.message);
-    throw error;
+  } catch (err) {
+    if (err.response && err.response.status === 409) {
+      alert("Bienvenido!: ",err.response.data.message);  // Mensaje de usuario ya existente
+    } else {
+      alert("Error al registrar usuario, intente nuevamente.");
+      throw err;
+    }
   }
 };

@@ -22,12 +22,23 @@ const Register = () => {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
         //enviar datos
+        console.log("usuario: ", user);
         await saveUserToDatabase({ uid:user.uid, email:user.email, createdAt:user.metadata.creationTime });
         setError(""); // Limpia el error al registrar correctamente el usuario
         alert("Usuario registrado y guardado en la base de datos.");
         navigate("/"); // Redirige a la página principal después del registro
-    } catch (err) {
-        setError("Error al crear la cuenta.", err.message);
+    } catch (error) {
+        //manejo de errores con firebase.
+        if (error.code === 'auth/email-already-in-use') {
+            setError('El correo ya está en uso.');
+        } else if (error.code === 'auth/invalid-email') {
+            setError('El formato del correo es inválido.');
+        } else if (error.code === 'auth/weak-password') {
+            setError('La contraseña es demasiado débil.');
+        } else {
+            setError('Error desconocido al registrar el usuario.');
+        }
+        console.error('Error al registrar usuario:', error);
     }
     };
 

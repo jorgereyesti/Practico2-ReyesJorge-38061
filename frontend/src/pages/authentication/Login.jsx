@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 import "../../styles/AuthStyles.css"; // Importa los estilos para una mejor UI
+import GoogleButton from "../../components/GoogleButton";
 
 const Login = () => {
 const [email, setEmail] = useState("");
@@ -46,11 +47,12 @@ return (
         </div>
         {error && <p className="error-message">{error}</p>}
         <button type="submit" className="btn-submit">Iniciar sesión</button>
-    </form>
-    <br></br>
     <p>
         ¿No tienes cuenta? <a href="/register">Regístrate aquí</a>
     </p>
+    <GoogleButton />
+    </form>
+    
     </div>
 );
 };
